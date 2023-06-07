@@ -1,6 +1,8 @@
 package com.mygel.crazyideasmod;
 
 import com.mojang.logging.LogUtils;
+import com.mygel.crazyideasmod.block.CrazyBlocks;
+import com.mygel.crazyideasmod.item.CrazyItems;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -22,6 +24,9 @@ public class CrazyIdeasMod
     public CrazyIdeasMod()
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        CrazyItems.register(modEventBus);
+        CrazyBlocks.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
